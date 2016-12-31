@@ -1,11 +1,16 @@
 use std::io;
-use super::value::{
+use super::{
     Elf_Word,
     Elf_Addr,
     Elf_VarWord,
     Elf_Off
 };
-
+use super::value::{
+    read_word,
+    read_plat_word,
+    read_addr,
+    read_off
+};
 
 #[derive(Clone,Copy,Debug,PartialEq,Eq)]
 #[allow(dead_code)]
@@ -90,33 +95,50 @@ impl ProgramHeaderTable {
     }
 }
 
-
 /*
-
-Reference:
-
-Cody the way you read the structure will differe based on 32/64 bit ELF
-
-typedef struct elf32_phdr{
-  Elf32_Word	p_type;
-  Elf32_Off	p_offset;
-  Elf32_Addr	p_vaddr;
-  Elf32_Addr	p_paddr;
-  Elf32_Word	p_filesz;
-  Elf32_Word	p_memsz;
-  Elf32_Word	p_flags;
-  Elf32_Word	p_align;
-} Elf32_Phdr;
-
-typedef struct elf64_phdr {
-  Elf64_Word p_type;
-  Elf64_Word p_flags;
-  Elf64_Off p_offset;		/* Segment file offset */
-  Elf64_Addr p_vaddr;		/* Segment virtual address */
-  Elf64_Addr p_paddr;		/* Segment physical address */
-  Elf64_Xword p_filesz;		/* Segment size in file */
-  Elf64_Xword p_memsz;		/* Segment size in memory */
-  Elf64_Xword p_align;		/* Segment alignment, file & memory */
-} Elf64_Phdr;
-
-*/
+ * IDFK why but 32bit and 64bit have the EXACT SAME
+ * fields but they are in a different order because
+ * Cache cooherance is _that_ important to linus
+ *
+ * I mean that makes sense what ever...
+ */
+named!(pub read_pht_64<ProgramHeaderTable>, chain!(
+    ptype: read_word~
+    pflags: read_word~
+    poffset: read_off~
+    pvaddr: read_addr~
+    ppaddr: read_addr~
+    pfilesz: read_plat_word~
+    pmemsz: read_plat_word~
+    palign: read_plat_word,
+    || ProgramHeaderTable {
+        kind: ptype,
+        offset: poffset,
+        vaddr: pvaddr,
+        paddr: ppaddr,
+        flags: pflags,
+        memsize: pmemsz,
+        align: palign,
+        filesz: pfilesz
+    }
+));
+named!(pub read_pht_32<ProgramHeaderTable>,chain!(
+    ptype: read_word~
+    poffset: read_off~
+    pvaddr: read_addr~
+    ppaddr: read_addr~
+    pfilesz: read_plat_word~
+    pmemsz: read_plat_word~
+    pflags: read_word~
+    palign: read_plat_word,
+    || ProgramHeaderTable {
+        kind: ptype,
+        offset: poffset,
+        vaddr: pvaddr,
+        paddr: ppaddr,
+        flags: pflags,
+        memsize: pmemsz,
+        align: palign,
+        filesz: pfilesz
+    }
+));
