@@ -1,0 +1,8 @@
+[package]
+name = "elfdecode"
+version = "0.1.0"
+authors = ["valarauca <codylaeder@gmail.com>"]
+
+[dependencies]
+nom = "2.0.*"
+byteorder = "1.0.0"
