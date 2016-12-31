@@ -1,5 +1,5 @@
 [package]
-name = "elfdecode"
+name = "elrond"
 version = "0.1.0"
 authors = ["valarauca <codylaeder@gmail.com>"]
 

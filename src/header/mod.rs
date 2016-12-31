@@ -1,20 +1,23 @@
 pub mod endian;
-use self::endian::{read_endian,Endian};
+pub use self::endian::{read_endian,Endian};
 pub mod wordsize;
-use self::wordsize::{read_platform,Platform};
+pub use self::wordsize::{read_platform,Platform};
 pub mod abi;
-use self::abi::{read_abi,ABI};
+pub use self::abi::{read_abi,ABI};
 pub mod kind;
-use self::kind::{read_kind, Kind};
+pub use self::kind::{read_kind, Kind};
 pub mod arch;
-use self::arch::{read_arch,Arch};
+pub use self::arch::{read_arch,Arch};
 
 
-use super::value::{define_reader,
+use super::{
     Elf_Addr,
     Elf_Off,
     Elf_Word,
     Elf_Half,
+};
+use super::value::{
+    define_reader,
     read_word,
     read_addr,
     read_off,

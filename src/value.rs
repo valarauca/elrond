@@ -39,7 +39,7 @@ fn get_endian() -> Endian {
     })
 }
 #[inline(always)]
-fn get_platform() -> Platform {
+pub fn get_platform() -> Platform {
     PLATFORM.with(|cell| -> Platform {
         *cell.borrow()
     })
@@ -99,6 +99,10 @@ fn read_platform_word<'a>(i: &'a[u8]) -> IResult<&'a[u8],u64> {
     }
 }
 
+/*
+ * Define the types which are different for different
+ * platforms
+ */
 std_val!{
     @PLATFORM
     @ID:
@@ -126,7 +130,9 @@ std_val!{
     @READER:
         read_platform_word => read_plat_word;
 }
-
+/*
+ * Define the standard types
+ */
 std_val!{
     @ID:
         Elf_Half;

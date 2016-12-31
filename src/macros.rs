@@ -81,6 +81,7 @@ macro_rules! std_val {
     ) => {
         #[allow(dead_code)]
         #[derive(Debug,PartialEq,Eq,Clone,Copy)]
+        #[allow(non_camel_case_types)]
         pub enum $identifier {
             Bits32(u32),
             Bits64(u64)
@@ -124,6 +125,7 @@ macro_rules! std_val {
     ) => {
         #[allow(dead_code)]
         #[derive(Debug,PartialEq,Eq,Clone,Copy)]
+        #[allow(non_camel_case_types)]
         pub struct $identifier ( pub $internal);
         $(
             impl Into<$kind> for $identifier {
