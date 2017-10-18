@@ -54,6 +54,7 @@ impl Header {
 
 ///Full Elf Header
 #[allow(dead_code)]
+#[derive(Debug,Copy,Clone)]
 pub struct ElfHeader {
     pub endian: Endian,
     pub wordsize: Platform,

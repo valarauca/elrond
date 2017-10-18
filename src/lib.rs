@@ -60,12 +60,14 @@ pub use value::{
 };
 #[allow(unused_imports)]
 pub use header::{
+    Endian,
+    Platform,
     ElfHeader,
     ABI,
     Kind,
     Arch
 };
-use header::{Platform,read_elf_header};
+use header::read_elf_header;
 use pht::{read_pht_64,read_pht_32};
 use value::get_platform;
 #[allow(unused_imports)]
@@ -76,6 +78,7 @@ pub use pht::{
 pub use nom::IResult;
 
 ///Holds the ELF Data
+#[derive(Debug)]
 pub struct Elf {
     pub header: ElfHeader,
     pub sections: Vec<Section>,
