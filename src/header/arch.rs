@@ -1,92 +1,37 @@
-#[allow(unused_imports)]
-use super::super::value::{read_half,Elf_Half};
-build_enum!{
-    @INT
-        read_half;
-        Elf_Half => usize;
-    @ENUM Arch {
-        None,
-        M32,
-        Sparc,
-        Intel386,
-        Motorola68k,
-        Motorola88k,
-        INTEL486,
-        INTEL860,
-        MIPS,
-        PaRISC,
-        SPARC32PLUS,
-        PowerPC,
-        PowerPC64,
-        CellBESPU,
-        ARM,
-        SuperH,
-        SPARCv9,
-        H8300,
-        IntelHP64,
-        AMD64,
-        IBMS390,
-        CRIS,
-        RenesasM32R,
-        MEIMN10300AM33,
-        OpenRISC,
-        BlackFin,
-        AlteraNOIS2,
-        TIC6xDPS,
-        Aarch64,
-        TilePRO,
-        MicroBlaze,
-        TileGX,
-        LinuxBPF,
-        FRV,
-        AtmelAVR32,
-        Alpha,
-        CygnusM32R,
-        OLDS390,
-        CygnusMN10300
-    }
-    @TOFUNC to_endian => Arch {
-        0 => Arch::None,
-        1 => Arch::M32,
-        2 => Arch::Sparc,
-        3 => Arch::Intel386,
-        4 => Arch::Motorola68k,
-        5 => Arch::Motorola88k,
-        6 => Arch::INTEL486,
-        7 => Arch::INTEL860,
-        8 => Arch::MIPS,
-        15 => Arch::PaRISC,
-        18 => Arch::SPARC32PLUS,
-        20 => Arch::PowerPC,
-        21 => Arch::PowerPC64,
-        23 => Arch::CellBESPU,
-        40 => Arch::ARM,
-        42 => Arch::SuperH,
-        43 => Arch::SPARCv9,
-        46 => Arch::H8300,
-        50 => Arch::IntelHP64,
-        62 => Arch::AMD64,
-        22 => Arch::IBMS390,
-        76 => Arch::CRIS,
-        88 => Arch::RenesasM32R,
-        89 => Arch::MEIMN10300AM33,
-        92 => Arch::OpenRISC,
-        106 => Arch::BlackFin,
-        113 => Arch::AlteraNOIS2,
-        140 => Arch::TIC6xDPS,
-        183 => Arch::Aarch64,
-        188 => Arch::TilePRO,
-        189 => Arch::MicroBlaze,
-        191 => Arch::TileGX,
-        247 => Arch::LinuxBPF,
-        0x5441 => Arch::FRV,
-        0x18AD => Arch::AtmelAVR32,
-        0x9026 => Arch::Alpha,
-        0x9041 => Arch::CygnusM32R,
-        0xA390 => Arch::OLDS390,
-        0xBEEF => Arch::CygnusMN10300
-        ;
-        "\n\nValue {:?} is non-standard for E_MACHINE\n\n"
-    }
-    @PUB read_arch
+use super::super::nom::{le_u16,be_u16};
+
+new_enum! {@var_with_unknown
+    type_name: ElfArch;
+    inner_type: u16;
+    new_trait: {
+        trait_name: Arch;
+        getter_method: get_arch;
+    };
+    parser: {
+        name: {
+            big_endian: parse_elf_arch_be;
+            little_endian: parse_elf_arch_le;
+        };
+        nom: {
+            big_endian: be_u16;
+            little_endian: le_u16;
+        };
+    };
+    values: {
+        (is_none, None, 0),
+        (is_intel386, Intel386, 3),
+        (is_motorola68k, Motorola68k, 4),
+        (is_motorola88k, Motorola88k, 5),
+        (is_intel486, Intel486, 6),
+        (is_intel860, Intel860, 7),
+        (is_powerpc, PowerPC, 20),
+        (is_powerpc64, PowerPC64, 21),
+        (is_arm, ARM, 40),
+        (is_itanium, IA64, 50),
+        (is_amd64, AMD64, 62),
+        (is_aarch64, Aarch64, 183),
+        (is_linux_bpf, LinuxBPF, 247),
+        (is_open_risc, OpenRISC, 92)
+    };
 }
+

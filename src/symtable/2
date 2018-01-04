@@ -1,0 +1,12 @@
+
+use super::{
+    SymBinding, SymbolBinding,
+    SymType, SymbolType,
+    SymProt, SymbolProtection,
+    find_null,
+};
+
+pub trait SymEntry<'a>: SymbolBinding + SymbolType + SymbolProtection + ElfHeader<'a> {
+
+    pub fn get_name(&self) -> Option<
+}

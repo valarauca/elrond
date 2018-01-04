@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ElfArch` enum in crate `elrond`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ElfArch">
+
+    <title>elrond::ElfArch - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc enum">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Enum ElfArch</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#variants">Variants</a><div class="sidebar-links"><a href="#variant.None">None</a><a href="#variant.Intel386">Intel386</a><a href="#variant.Motorola68k">Motorola68k</a><a href="#variant.Motorola88k">Motorola88k</a><a href="#variant.Intel486">Intel486</a><a href="#variant.Intel860">Intel860</a><a href="#variant.PowerPC">PowerPC</a><a href="#variant.PowerPC64">PowerPC64</a><a href="#variant.ARM">ARM</a><a href="#variant.IA64">IA64</a><a href="#variant.AMD64">AMD64</a><a href="#variant.Aarch64">Aarch64</a><a href="#variant.LinuxBPF">LinuxBPF</a><a href="#variant.OpenRISC">OpenRISC</a><a href="#variant.Unknown">Unknown</a></div><a class="sidebar-title" href="#implementations">Trait Implementations</a><div class="sidebar-links"><a href="#impl-Copy">Copy</a><a href="#impl-Clone">Clone</a><a href="#impl-PartialEq">PartialEq</a><a href="#impl-Eq">Eq</a><a href="#impl-Hash">Hash</a><a href="#impl-Debug">Debug</a><a href="#impl-From%3Cu16%3E">From&lt;u16&gt;</a><a href="#impl-Arch">Arch</a></div></div><p class='location'><a href='index.html'>elrond</a></p><script>window.sidebarCurrent = {name: 'ElfArch', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>elrond</a>::<wbr><a class="enum" href=''>ElfArch</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/elrond/macros.rs.html#184-186' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum ElfArch {
+    None,
+    Intel386,
+    Motorola68k,
+    Motorola88k,
+    Intel486,
+    Intel860,
+    PowerPC,
+    PowerPC64,
+    ARM,
+    IA64,
+    AMD64,
+    Aarch64,
+    LinuxBPF,
+    OpenRISC,
+    Unknown(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>),
+}</pre><h2 id='variants' class='variants small-section-header'>
+                   Variants<a href='#variants' class='anchor'></a></h2>
+<span id="variant.None" class="variant small-section-header"><a href="#variant.None" class="anchor field"></a><span id='None.v' class='invisible'><code>None</code></span></span><span id="variant.Intel386" class="variant small-section-header"><a href="#variant.Intel386" class="anchor field"></a><span id='Intel386.v' class='invisible'><code>Intel386</code></span></span><span id="variant.Motorola68k" class="variant small-section-header"><a href="#variant.Motorola68k" class="anchor field"></a><span id='Motorola68k.v' class='invisible'><code>Motorola68k</code></span></span><span id="variant.Motorola88k" class="variant small-section-header"><a href="#variant.Motorola88k" class="anchor field"></a><span id='Motorola88k.v' class='invisible'><code>Motorola88k</code></span></span><span id="variant.Intel486" class="variant small-section-header"><a href="#variant.Intel486" class="anchor field"></a><span id='Intel486.v' class='invisible'><code>Intel486</code></span></span><span id="variant.Intel860" class="variant small-section-header"><a href="#variant.Intel860" class="anchor field"></a><span id='Intel860.v' class='invisible'><code>Intel860</code></span></span><span id="variant.PowerPC" class="variant small-section-header"><a href="#variant.PowerPC" class="anchor field"></a><span id='PowerPC.v' class='invisible'><code>PowerPC</code></span></span><span id="variant.PowerPC64" class="variant small-section-header"><a href="#variant.PowerPC64" class="anchor field"></a><span id='PowerPC64.v' class='invisible'><code>PowerPC64</code></span></span><span id="variant.ARM" class="variant small-section-header"><a href="#variant.ARM" class="anchor field"></a><span id='ARM.v' class='invisible'><code>ARM</code></span></span><span id="variant.IA64" class="variant small-section-header"><a href="#variant.IA64" class="anchor field"></a><span id='IA64.v' class='invisible'><code>IA64</code></span></span><span id="variant.AMD64" class="variant small-section-header"><a href="#variant.AMD64" class="anchor field"></a><span id='AMD64.v' class='invisible'><code>AMD64</code></span></span><span id="variant.Aarch64" class="variant small-section-header"><a href="#variant.Aarch64" class="anchor field"></a><span id='Aarch64.v' class='invisible'><code>Aarch64</code></span></span><span id="variant.LinuxBPF" class="variant small-section-header"><a href="#variant.LinuxBPF" class="anchor field"></a><span id='LinuxBPF.v' class='invisible'><code>LinuxBPF</code></span></span><span id="variant.OpenRISC" class="variant small-section-header"><a href="#variant.OpenRISC" class="anchor field"></a><span id='OpenRISC.v' class='invisible'><code>OpenRISC</code></span></span><span id="variant.Unknown" class="variant small-section-header"><a href="#variant.Unknown" class="anchor field"></a><span id='Unknown.v' class='invisible'><code>Unknown(<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>)</code></span></span>
+            <h2 id='implementations' class='small-section-header'>
+              Trait Implementations<a href='#implementations' class='anchor'></a>
+            </h2>
+        <h3 id='impl-Copy' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> for <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code><a href='#impl-Copy' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#183' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Clone' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html" title="trait core::clone::Clone">Clone</a> for <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code><a href='#impl-Clone' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#183' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class="method"><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#183' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class="method"><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Self)</code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/clone.rs.html#112-114' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 id='impl-PartialEq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html" title="trait core::cmp::PartialEq">PartialEq</a> for <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code><a href='#impl-PartialEq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#183' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class="method"><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#183' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class="method"><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#183' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 id='impl-Eq' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html" title="trait core::cmp::Eq">Eq</a> for <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code><a href='#impl-Eq' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#183' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 id='impl-Hash' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html" title="trait core::hash::Hash">Hash</a> for <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code><a href='#impl-Hash' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#183' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.hash' class="method"><span id='hash.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash' class='fnname'>hash</a>&lt;__H:&nbsp;<a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>&gt;(&amp;self, __arg_0: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>__H)</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#183' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Feeds this value into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#tymethod.hash">Read more</a></p>
+</div><h4 id='method.hash_slice' class="method"><span id='hash_slice.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice' class='fnname'>hash_slice</a>&lt;H&gt;(data: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;[Self]</a>, state: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;mut </a>H) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;H: <a class="trait" href="https://doc.rust-lang.org/nightly/core/hash/trait.Hasher.html" title="trait core::hash::Hasher">Hasher</a>,&nbsp;</span></code></span><span class='out-of-band'><div class='ghost'></div><div class='since' title='Stable since Rust version 1.3.0'>1.3.0</div><a class='srclink' href='https://doc.rust-lang.org/nightly/src/core/hash/mod.rs.html#202-208' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Feeds a slice of this type into the given [<code>Hasher</code>]. <a href="https://doc.rust-lang.org/nightly/core/hash/trait.Hash.html#method.hash_slice">Read more</a></p>
+</div></div><h3 id='impl-Debug' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html" title="trait core::fmt::Debug">Debug</a> for <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code><a href='#impl-Debug' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#187-194' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class="method"><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class="struct" href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html" title="struct core::fmt::Formatter">Formatter</a>) -&gt; <a class="type" href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html" title="type core::fmt::Result">Result</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#188-193' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter. <a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt">Read more</a></p>
+</div></div><h3 id='impl-From%3Cu16%3E' class='impl'><span class='in-band'><code>impl <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.From.html" title="trait core::convert::From">From</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>&gt; for <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code><a href='#impl-From%3Cu16%3E' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#218-228' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.from' class="method"><span id='from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#tymethod.from' class='fnname'>from</a>(x: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>) -&gt; <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#220-227' title='goto source code'>[src]</a></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 id='impl-Arch' class='impl'><span class='in-band'><code>impl <a class="trait" href="../elrond/prelude/trait.Arch.html" title="trait elrond::prelude::Arch">Arch</a> for <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code><a href='#impl-Arch' class='anchor'></a></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#229-234' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.get_arch' class="method"><span id='get_arch.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#tymethod.get_arch' class='fnname'>get_arch</a>(&amp;self) -&gt; <a class="enum" href="../elrond/enum.ElfArch.html" title="enum elrond::ElfArch">ElfArch</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#231-233' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_none' class="method"><span id='is_none.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_none' class='fnname'>is_none</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_intel386' class="method"><span id='is_intel386.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_intel386' class='fnname'>is_intel386</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_motorola68k' class="method"><span id='is_motorola68k.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_motorola68k' class='fnname'>is_motorola68k</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_motorola88k' class="method"><span id='is_motorola88k.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_motorola88k' class='fnname'>is_motorola88k</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_intel486' class="method"><span id='is_intel486.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_intel486' class='fnname'>is_intel486</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_intel860' class="method"><span id='is_intel860.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_intel860' class='fnname'>is_intel860</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_powerpc' class="method"><span id='is_powerpc.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_powerpc' class='fnname'>is_powerpc</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_powerpc64' class="method"><span id='is_powerpc64.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_powerpc64' class='fnname'>is_powerpc64</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_arm' class="method"><span id='is_arm.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_arm' class='fnname'>is_arm</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_itanium' class="method"><span id='is_itanium.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_itanium' class='fnname'>is_itanium</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_amd64' class="method"><span id='is_amd64.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_amd64' class='fnname'>is_amd64</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_aarch64' class="method"><span id='is_aarch64.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_aarch64' class='fnname'>is_aarch64</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_linux_bpf' class="method"><span id='is_linux_bpf.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_linux_bpf' class='fnname'>is_linux_bpf</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_open_risc' class="method"><span id='is_open_risc.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_open_risc' class='fnname'>is_open_risc</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#198-203' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.is_unknown' class="method"><span id='is_unknown.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.is_unknown' class='fnname'>is_unknown</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#205-210' title='goto source code'>[src]</a></span></h4>
+<h4 id='method.get_unknown' class="method"><span id='get_unknown.v' class='invisible'><code>fn <a href='../elrond/prelude/trait.Arch.html#method.get_unknown' class='fnname'>get_unknown</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u16.html">u16</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/elrond/macros.rs.html#211-216' title='goto source code'>[src]</a></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "elrond";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

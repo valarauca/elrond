@@ -1,185 +1,244 @@
+
 /*
-Copyright 2016 William Cody Laeder
+ * Declare enums
+ *
+ * This abstracts away the boiler plate of enum
+ * and trait declaration.
+ *
+ */
+macro_rules! new_enum {
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
-#[macro_export]
-macro_rules! parse_test {
-    (@LIST $func:ident, $($dut:expr=>$eq:expr),*) => {
-        $(
-            let dut = $dut;
-            let (_,val) = $func(dut).unwrap();
-            assert_eq!(val, $eq);
-        )*
-    };
-    ($dut:expr, $func:ident, $eq: expr) => {
-        let dut = $dut;
-        let (_,val) = $func(dut).unwrap();
-        assert_eq!(val, $eq);
-    };
-}
-
-#[macro_export]
-macro_rules! build_enum {
-    (
-        @ARRAY
-        @ENUM $enum_name:ident{$($val:ident),*}
-        @TOFUNC $func_name:ident => $ret: ty {$($func_val:expr=>$func_out:expr),*; $panic:expr }
-        @PUB $name: ident; $take: expr
+    /*
+     * Limited Byte Parser
+     *
+     * Only parse 1 byte (so endian doesn't matter)
+     *
+     * If value is not in the set it'll return an error code.
+     *
+     * Requires `nom::{IResult,ErrorKind,Needed};`
+     *
+     */
+    (@limited_byte_parser
+        type_name: $enum_type_name: ident;
+        new_trait {
+            trait_name: $enum_trait_name: ident;
+            getter_method: $enum_getter_name: ident;
+        };
+        limited_parser {
+            error_code: $err: expr;
+            parser_name: $parser_name: ident;
+        };
+        values {
+            $(($isa_name: ident, $variant: ident, $val: expr)),*
+        };
     ) => {
-        #[allow(dead_code)]
-        #[derive(Copy,Clone,Debug,PartialEq,Eq)]
-        pub enum $enum_name {
+        #[derive(Debug,Copy,Clone,PartialEq,Eq,Hash)]
+        pub enum $enum_type_name {
+            $( $variant ),*
+        }
+        pub trait $enum_trait_name {
+            fn $enum_getter_name(&self) -> $enum_type_name;
             $(
-                $val,
-            )*
-        }
-        #[allow(dead_code)]
-        #[inline(always)]
-        fn $func_name( x: &[u8]) -> $ret {
-            match x {
-                $(
-                    $func_val => $func_out,
-                )*
-                y => panic!($panic,y)
-            }
-        }
-        named!(pub $name<$ret>, map!(take!($take), $func_name));
-    };
-    (
-        @INT $symbol: ident; $code: ty => $rego_code: ty;
-        @ENUM $enum_name:ident{$($val:ident),*}
-        @TOFUNC $func_name:ident => $ret: ty {$($func_val:expr=>$func_out:expr),*; $panic:expr }
-        @PUB $name: ident
-    ) => {
-        #[allow(dead_code)]
-        #[derive(Copy,Clone,Debug,PartialEq,Eq)]
-        pub enum $enum_name {
-            $(
-                $val,
-            )*
-        }
-        #[allow(dead_code)]
-        #[inline(always)]
-        fn $func_name( i: $code) -> $ret {
-            let x: $rego_code = i.into();
-            match x {
-                $(
-                    $func_val => $func_out,
-                )*
-                y => panic!($panic,y)
-            }
-        }
-        named!(pub $name<$ret>, map!($symbol, $func_name));
-    };
-}
-
-#[macro_export]
-macro_rules! std_val {
-    (
-        @PLATFORM
-        @ID: $identifier: ident;
-        @INTO_FROM: $($kind: ty),*;
-        @READER: $reader:ident => $new_sym: ident;
-    ) => {
-        #[allow(dead_code)]
-        #[derive(Debug,PartialEq,Eq,Clone,Copy)]
-        #[allow(non_camel_case_types)]
-        pub enum $identifier {
-            Bits32(u32),
-            Bits64(u64)
-        }
-        $(
-            impl Into<$kind> for $identifier {
-                #[inline(always)]
-                #[allow(dead_code)]
-                fn into(self) -> $kind {
-                    match self {
-                        $identifier::Bits32(x) => x as $kind,
-                        $identifier::Bits64(x) => x as $kind
+                fn $isa_name(&self) -> bool {
+                    match self.$enum_getter_name() {
+                        $enum_type_name::$variant => true,
+                        _ => false
                     }
                 }
+            )*
+        }
+        impl $enum_trait_name for $enum_type_name {
+            #[inline(always)]
+            fn $enum_getter_name(&self) -> $enum_type_name {
+                self.clone()
             }
-            impl From<$kind> for $identifier {
-                #[inline(always)]
-                #[allow(dead_code)]
-                fn from(x: $kind) -> Self {
-                    match get_platform() {
-                        Platform::Bit32 => $identifier::Bits32( x as u32),
-                        Platform::Bit64 => $identifier::Bits64( x as u64)
+        }
+        pub fn $parser_name<'a>(buffer: &'a [u8]) -> IResult<&'a [u8], $enum_type_name, u32> {
+            let mut ret: Option<$enum_type_name> = None;
+            let len = buffer.len();
+            if len >= 1 {
+                let var: usize = buffer[0].clone() as usize;
+                $(
+                    if var == ($val as usize) {
+                        ::std::mem::replace(&mut ret, Some($enum_type_name::$variant));
+                    }
+                )*
+            }
+            match (ret,len) {
+                (_,0) => IResult::Incomplete(Needed::Unknown),
+                (Option::None,_) => IResult::Error(Err::Code(ErrorKind::Custom($err as u32))),
+                (Option::Some(x),1) => IResult::Done(&buffer[0..0],x),
+                (Option::Some(x),_) => IResult::Done(&buffer[1..],x)
+            }
+        }
+    };
+
+    /*
+     * Byte Parser w/ Unknown
+     *
+     * There are some known fields, but the standard allows for alternative
+     * values.
+     *
+     * Value should just be a numeric.
+     *
+     * Endianness doesn't matter
+     *
+     * This requires importing `nom::le_u8`
+     */
+    (@byte_parser_with_unknown
+        type_name: $enum_type_name: ident;
+        new_trait: {
+            trait_name: $enum_trait_name: ident;
+            getter_method: $enum_getter_name: ident;
+        }
+        parser_name: $parser_name: ident;
+        values: {
+            $(($isa_name: ident, $variant: ident, $val: expr)),*
+        }
+    ) => {
+        #[derive(Copy,Clone,PartialEq,Eq,Hash)]
+        pub enum $enum_type_name {
+            $( $variant ),* ,Unknown(u8)
+        }
+        impl ::std::fmt::Debug for $enum_type_name {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+                match self {
+                    $( &$enum_type_name::$variant => write!(f, "{}", stringify!( $variant))),*
+                    ,&$enum_type_name::Unknown(ref x) => write!(f, "Unknown({:#02X}", x),
+                }
+            }
+        }
+        pub trait $enum_trait_name {
+            fn $enum_getter_name(&self) -> $enum_type_name;
+            $(
+                fn $isa_name(&self) -> bool {
+                    match self.$enum_getter_name() {
+                        $enum_type_name::$variant => true,
+                        _ => false
                     }
                 }
-            }
-        )*
-        #[inline(always)]
-        #[allow(dead_code)]
-        pub fn $new_sym<'a>(i: &'a [u8]) -> IResult<&'a [u8], $identifier> {
-            match $reader(i) {
-                IResult::Done(x,y) => IResult::Done(x,y.into()),
-                IResult::Error(z) => IResult::Error(z),
-                IResult::Incomplete(z) => IResult::Incomplete(z)
-            }
-        }
-    };
-    (
-        @ID: $identifier: ident; $internal: ty;
-        @INTO_FROM: $($kind: ty),*;
-        @READER: $reader:ident => $new_sym: ident;
-    ) => {
-        #[allow(dead_code)]
-        #[derive(Debug,PartialEq,Eq,Clone,Copy)]
-        #[allow(non_camel_case_types)]
-        pub struct $identifier ( pub $internal);
-        $(
-            impl Into<$kind> for $identifier {
-                #[inline(always)]
-                #[allow(dead_code)]
-                fn into(self) -> $kind {
-                    self.0 as $kind
+            )*
+            fn is_unknown(&self) -> bool {
+                match self.$enum_getter_name() {
+                    $enum_type_name::Unknown(_) => true,
+                    _ => false
                 }
             }
-            impl From<$kind> for $identifier {
-                #[inline(always)]
-                #[allow(dead_code)]
-                fn from(x: $kind) -> Self {
-                    $identifier ( x as $internal)
+            fn get_unknown(&self) -> Option<u8> {
+                match self.$enum_getter_name() {
+                    $enum_type_name::Unknown(x) => Some(x),
+                    _ => None
                 }
             }
-        )*
-        #[inline(always)]
-        #[allow(dead_code)]
-        pub fn $new_sym<'a>(i: &'a [u8]) -> IResult<&'a [u8], $identifier> {
-            match $reader(i) {
-                IResult::Done(x,y) => IResult::Done(x,y.into()),
-                IResult::Error(z) => IResult::Error(z),
-                IResult::Incomplete(z) => IResult::Incomplete(z)
+        }
+        impl From<u8> for $enum_type_name {
+            #[inline(always)]
+            fn from(x: u8) -> $enum_type_name {
+                $(
+                    if x == $val {
+                        return $enum_type_name::$variant;
+                    }
+                )*
+                $enum_type_name::Unknown(x)
             }
         }
-    };
-}
+        impl $enum_trait_name for $enum_type_name {
+            #[inline(always)]
+            fn $enum_getter_name(&self) -> $enum_type_name {
+                self.clone()
+            }
+        }
+        named!(pub $parser_name<&[u8],$enum_type_name,u32>, do_parse!(
+            var: le_u8 >>
+            ({ $enum_type_name::from(var) })
+        ));
 
-#[macro_export]
-macro_rules! generate_reader {
-    (
-        $name: ident; $internal: ident;$code: ty;
+    };
+
+    /*
+     * Multi-byte parser
+     *
+     */
+    (@var_with_unknown
+        type_name: $enum_type_name: ident;
+        inner_type: $kind: ty;
+        new_trait: {
+            trait_name: $enum_trait_name: ident;
+            getter_method: $enum_getter_name: ident;
+        };
+        parser: {
+            name: {
+                big_endian: $parser_name_be: ident;
+                little_endian: $parser_name_le: ident;
+            };
+            nom: {
+                big_endian: $nom_be: ident;
+                little_endian: $nom_le: ident;
+            };
+        };
+        values: {
+            $(($isa_name: ident, $variant: ident, $val: expr)),*
+        };
     ) => {
-        ///read a u16 (in correct endianness)
-        #[inline(always)]
-        #[allow(dead_code)]
-        fn $internal(x: &[u8]) -> $code {
-            get_endian().$name(x)
+        #[derive(Copy,Clone,PartialEq,Eq,Hash)]
+        pub enum $enum_type_name {
+            $( $variant ),* ,Unknown($kind)
         }
-        named!($name<$code>, map!(take!(::std::mem::size_of::<$code>), $internal));
-    }
+        impl ::std::fmt::Debug for $enum_type_name {
+            fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+                match self {
+                    $( &$enum_type_name::$variant => write!(f, "{}", stringify!( $variant))),*
+                    ,&$enum_type_name::Unknown(ref x) => write!(f, "Unknown({:#08X}", x),
+                }
+            }
+        }
+        pub trait $enum_trait_name {
+            fn $enum_getter_name(&self) -> $enum_type_name;
+            $(
+                fn $isa_name(&self) -> bool {
+                    match self.$enum_getter_name() {
+                        $enum_type_name::$variant => true,
+                        _ => false
+                    }
+                }
+            )*
+            fn is_unknown(&self) -> bool {
+                match self.$enum_getter_name() {
+                    $enum_type_name::Unknown(_) => true,
+                    _ => false
+                }
+            }
+            fn get_unknown(&self) -> Option<$kind> {
+                match self.$enum_getter_name() {
+                    $enum_type_name::Unknown(x) => Some(x),
+                    _ => None
+                }
+            }
+        }
+        impl From<$kind> for $enum_type_name {
+            #[inline(always)]
+            fn from(x: $kind) -> $enum_type_name {
+                $(
+                    if x == ($val as $kind) {
+                        return $enum_type_name::$variant;
+                    }
+                )*
+                $enum_type_name::Unknown(x)
+            }
+        }
+        impl $enum_trait_name for $enum_type_name {
+            #[inline(always)]
+            fn $enum_getter_name(&self) -> $enum_type_name {
+                self.clone()
+            }
+        }
+        named!(pub $parser_name_be<&[u8],$enum_type_name,u32>, do_parse!(
+            var: $nom_be >>
+            ({ $enum_type_name::from(var) })
+        ));
+        named!(pub $parser_name_le<&[u8],$enum_type_name,u32>, do_parse!(
+            var: $nom_le >>
+            ({ $enum_type_name::from(var) })
+        ));
+    };
 }

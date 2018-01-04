@@ -9,6 +9,7 @@
 
     <title>elrond - Rust</title>
 
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
     <link rel="stylesheet" type="text/css" href="../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
     
@@ -16,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc">
+<body class="rustdoc mod">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -27,8 +28,9 @@
     
 
     <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'></p><script>window.sidebarCurrent = {name: 'elrond', ty: 'mod', relpath: '../'};</script>
+        <p class='location'>Crate elrond</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'elrond', ty: 'mod', relpath: '../'};</script></div>
     </nav>
 
     <nav class="sub">
@@ -42,192 +44,246 @@
         </form>
     </nav>
 
-    <section id='main' class="content mod">
-<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>elrond</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>elrond</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/elrond/src/lib.rs.html#18-156' title='goto source code'>[src]</a></span></h1>
-<div class='docblock'><p>Elrond reads Elf files</p>
-
-<p>This is an embryonic Elf Parser written in NOM. It is not feature complete. It requires a lot
-more testing this is just a cleaned up version I can throw on <code>crates.io</code> to start testing
-with.</p>
-
-<p>There are no benchmarks.</p>
-
-<p>There are no cool features. It doesn&#39;t support dynamic objects (yet).</p>
-
-<p>It isn&#39;t <em>super</em> ergonomic. I more-or-less read BSD source code
-and a pdf to produce this. I&#39;m not even sure it works.</p>
-</div><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+               </span><a class='srclink' href='../src/elrond/lib.rs.html#1-94' title='goto source code'>[src]</a></span></h1>
+<h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='macro' href='macro.build_enum.html'
-                                  title='elrond::build_enum'>build_enum</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='macro' href='macro.generate_reader.html'
-                                  title='elrond::generate_reader'>generate_reader</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='macro' href='macro.parse_test.html'
-                                  title='elrond::parse_test'>parse_test</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='macro' href='macro.std_val.html'
-                                  title='elrond::std_val'>std_val</a></td>
+                           <td><a class="mod" href="prelude/index.html"
+                                  title='mod elrond::prelude'>prelude</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
                        </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Elf.html'
-                                  title='elrond::Elf'>Elf</a></td>
+                           <td><a class="struct" href="struct.ElfHeaderBase.html"
+                                  title='struct elrond::ElfHeaderBase'>ElfHeaderBase</a></td>
                            <td class='docblock-short'>
-                                <p>Holds the ELF Data</p>
+                                <p>This type wraps a trait object</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.ElfHeader.html'
-                                  title='elrond::ElfHeader'>ElfHeader</a></td>
+                           <td><a class="struct" href="struct.Sections.html"
+                                  title='struct elrond::Sections'>Sections</a></td>
                            <td class='docblock-short'>
-                                <p>Full Elf Header</p>
+                                <p>Holds all sections</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Elf_Half.html'
-                                  title='elrond::Elf_Half'>Elf_Half</a></td>
+                           <td><a class="struct" href="struct.SectionsIter.html"
+                                  title='struct elrond::SectionsIter'>SectionsIter</a></td>
                            <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Elf_SHalf.html'
-                                  title='elrond::Elf_SHalf'>Elf_SHalf</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Elf_SWord.html'
-                                  title='elrond::Elf_SWord'>Elf_SWord</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Elf_Sxword.html'
-                                  title='elrond::Elf_Sxword'>Elf_Sxword</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Elf_Word.html'
-                                  title='elrond::Elf_Word'>Elf_Word</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Elf_XWord.html'
-                                  title='elrond::Elf_XWord'>Elf_XWord</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.ProgramHeaderTable.html'
-                                  title='elrond::ProgramHeaderTable'>ProgramHeaderTable</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='struct' href='struct.Section.html'
-                                  title='elrond::Section'>Section</a></td>
-                           <td class='docblock-short'>
-                                
+                                <p>Iterate over sections</p>
                            </td>
                        </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
 <table>
                        <tr class=' module-item'>
-                           <td><a class='enum' href='enum.ABI.html'
-                                  title='elrond::ABI'>ABI</a></td>
+                           <td><a class="enum" href="enum.ElfAbi.html"
+                                  title='enum elrond::ElfAbi'>ElfAbi</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='enum' href='enum.Arch.html'
-                                  title='elrond::Arch'>Arch</a></td>
+                           <td><a class="enum" href="enum.ElfArch.html"
+                                  title='enum elrond::ElfArch'>ElfArch</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='enum' href='enum.Elf_Addr.html'
-                                  title='elrond::Elf_Addr'>Elf_Addr</a></td>
+                           <td><a class="enum" href="enum.ElfClass.html"
+                                  title='enum elrond::ElfClass'>ElfClass</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='enum' href='enum.Elf_Off.html'
-                                  title='elrond::Elf_Off'>Elf_Off</a></td>
+                           <td><a class="enum" href="enum.ElfEndian.html"
+                                  title='enum elrond::ElfEndian'>ElfEndian</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='enum' href='enum.Elf_VarWord.html'
-                                  title='elrond::Elf_VarWord'>Elf_VarWord</a></td>
+                           <td><a class="enum" href="enum.ElfFileType.html"
+                                  title='enum elrond::ElfFileType'>ElfFileType</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='enum' href='enum.IResult.html'
-                                  title='elrond::IResult'>IResult</a></td>
+                           <td><a class="enum" href="enum.Fault.html"
+                                  title='enum elrond::Fault'>Fault</a></td>
                            <td class='docblock-short'>
-                                <p>Holds the result of parsing functions</p>
+                                <p>Errors in the parser</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='enum' href='enum.Kind.html'
-                                  title='elrond::Kind'>Kind</a></td>
+                           <td><a class="enum" href="enum.SectMemAttrib.html"
+                                  title='enum elrond::SectMemAttrib'>SectMemAttrib</a></td>
                            <td class='docblock-short'>
-                                
+                                <p>Attributes of a section</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='enum' href='enum.RamFlags.html'
-                                  title='elrond::RamFlags'>RamFlags</a></td>
-                           <td class='docblock-short'>
-                                
-                           </td>
-                       </tr>
-                       <tr class=' module-item'>
-                           <td><a class='enum' href='enum.SectionType.html'
-                                  title='elrond::SectionType'>SectionType</a></td>
+                           <td><a class="enum" href="enum.SectionKind.html"
+                                  title='enum elrond::SectionKind'>SectionKind</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
                        </tr>
                        <tr class=' module-item'>
-                           <td><a class='enum' href='enum.SegFlag.html'
-                                  title='elrond::SegFlag'>SegFlag</a></td>
+                           <td><a class="enum" href="enum.SymBinding.html"
+                                  title='enum elrond::SymBinding'>SymBinding</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.SymProt.html"
+                                  title='enum elrond::SymProt'>SymProt</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.SymType.html"
+                                  title='enum elrond::SymType'>SymType</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.VarSize.html"
+                                  title='enum elrond::VarSize'>VarSize</a></td>
+                           <td class='docblock-short'>
+                                <p>Sometimes ELF32 vs ELF64 has
+different lenght values.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.Abi.html"
+                                  title='trait elrond::Abi'>Abi</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.Arch.html"
+                                  title='trait elrond::Arch'>Arch</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.BufferBorrow.html"
+                                  title='trait elrond::BufferBorrow'>BufferBorrow</a></td>
+                           <td class='docblock-short'>
+                                <p>Returns the underlying buffer of the entire file</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.Class.html"
+                                  title='trait elrond::Class'>Class</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.ElfHeader.html"
+                                  title='trait elrond::ElfHeader'>ElfHeader</a></td>
+                           <td class='docblock-short'>
+                                <p>Header of an elf file</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.ElfMagicNumber.html"
+                                  title='trait elrond::ElfMagicNumber'>ElfMagicNumber</a></td>
+                           <td class='docblock-short'>
+                                <p>Elf Magic Number information</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.Endian.html"
+                                  title='trait elrond::Endian'>Endian</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.FileType.html"
+                                  title='trait elrond::FileType'>FileType</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.PHDR.html"
+                                  title='trait elrond::PHDR'>PHDR</a></td>
+                           <td class='docblock-short'>
+                                <p>Program Descriptor Header</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.Section.html"
+                                  title='trait elrond::Section'>Section</a></td>
+                           <td class='docblock-short'>
+                                <p>Describes a section</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.SectionAttributes.html"
+                                  title='trait elrond::SectionAttributes'>SectionAttributes</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.SectionType.html"
+                                  title='trait elrond::SectionType'>SectionType</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.SymEntry.html"
+                                  title='trait elrond::SymEntry'>SymEntry</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.SymbolBinding.html"
+                                  title='trait elrond::SymbolBinding'>SymbolBinding</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.SymbolProtection.html"
+                                  title='trait elrond::SymbolProtection'>SymbolProtection</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="trait" href="trait.SymbolType.html"
+                                  title='trait elrond::SymbolType'>SymbolType</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.parse_elf.html"
+                                  title='fn elrond::parse_elf'>parse_elf</a></td>
                            <td class='docblock-short'>
                                 
                            </td>
@@ -248,13 +304,15 @@ and a pdf to produce this. I&#39;m not even sure it works.</p>
                     <dd>Show this help dialog</dd>
                     <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt>&larrb;</dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt>&rarrb;</dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt>+</dt>
+                    <dt style="width:31px;">+ / -</dt>
                     <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
@@ -288,7 +346,6 @@ and a pdf to produce this. I&#39;m not even sure it works.</p>
         window.rootPath = "../";
         window.currentCrate = "elrond";
     </script>
-    <script src="../jquery.js"></script>
     <script src="../main.js"></script>
     <script defer src="../search-index.js"></script>
 </body>

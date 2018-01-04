@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ElfHeader` trait in crate `elrond`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ElfHeader">
+
+    <title>elrond::ElfHeader - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc trait">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Trait ElfHeader</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.duplicate">duplicate</a><a href="#tymethod.e_version">e_version</a><a href="#tymethod.e_entry">e_entry</a><a href="#tymethod.e_phoff">e_phoff</a><a href="#tymethod.e_shoff">e_shoff</a><a href="#tymethod.e_flags">e_flags</a><a href="#tymethod.e_ehsize">e_ehsize</a><a href="#tymethod.e_phentsize">e_phentsize</a><a href="#tymethod.e_phnum">e_phnum</a><a href="#tymethod.e_shentsize">e_shentsize</a><a href="#tymethod.e_shnum">e_shnum</a><a href="#tymethod.e_shstrndx">e_shstrndx</a></div><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.has_program_headers">has_program_headers</a><a href="#method.has_section_headers">has_section_headers</a><a href="#method.get_phdr">get_phdr</a><a href="#method.get_sections">get_sections</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='index.html'>elrond</a></p><script>window.sidebarCurrent = {name: 'ElfHeader', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>elrond</a>::<wbr><a class="trait" href=''>ElfHeader</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/elrond/header/traits.rs.html#14-52' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait ElfHeader&lt;'a&gt;: <a class="trait" href="../elrond/trait.ElfMagicNumber.html" title="trait elrond::ElfMagicNumber">ElfMagicNumber</a> + <a class="trait" href="../elrond/prelude/trait.Arch.html" title="trait elrond::prelude::Arch">Arch</a> + <a class="trait" href="../elrond/prelude/trait.FileType.html" title="trait elrond::prelude::FileType">FileType</a> + <a class="trait" href="../elrond/trait.BufferBorrow.html" title="trait elrond::BufferBorrow">BufferBorrow</a>&lt;'a&gt; + 'a {
+    fn <a href='#tymethod.duplicate' class='fnname'>duplicate</a>(&amp;self) -&gt; <a class="struct" href="../elrond/struct.ElfHeaderBase.html" title="struct elrond::ElfHeaderBase">ElfHeaderBase</a>&lt;'a&gt;;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_version' class='fnname'>e_version</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_entry' class='fnname'>e_entry</a>(&amp;self) -&gt; <a class="enum" href="../elrond/enum.VarSize.html" title="enum elrond::VarSize">VarSize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_phoff' class='fnname'>e_phoff</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_shoff' class='fnname'>e_shoff</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_flags' class='fnname'>e_flags</a>(&amp;self) -&gt; <a class="enum" href="../elrond/enum.VarSize.html" title="enum elrond::VarSize">VarSize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_ehsize' class='fnname'>e_ehsize</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_phentsize' class='fnname'>e_phentsize</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_phnum' class='fnname'>e_phnum</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_shentsize' class='fnname'>e_shentsize</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_shnum' class='fnname'>e_shnum</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+<div class='item-spacer'></div>    fn <a href='#tymethod.e_shstrndx' class='fnname'>e_shstrndx</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>;
+
+    fn <a href='#method.has_program_headers' class='fnname'>has_program_headers</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.has_section_headers' class='fnname'>has_section_headers</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.get_phdr' class='fnname'>get_phdr</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="trait" href="../elrond/trait.PHDR.html" title="trait elrond::PHDR">PHDR</a>&lt;'a&gt; + 'a&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt;, <a class="enum" href="../elrond/enum.Fault.html" title="enum elrond::Fault">Fault</a>&gt; { ... }
+<div class='item-spacer'></div>    fn <a href='#method.get_sections' class='fnname'>get_sections</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../elrond/struct.Sections.html" title="struct elrond::Sections">Sections</a>&lt;'a&gt;, <a class="enum" href="../elrond/enum.Fault.html" title="enum elrond::Fault">Fault</a>&gt; { ... }
+}</pre><div class='docblock'><p>Header of an elf file</p>
+</div>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='tymethod.duplicate' class='method'><span id='duplicate.v' class='invisible'><code>fn <a href='#tymethod.duplicate' class='fnname'>duplicate</a>(&amp;self) -&gt; <a class="struct" href="../elrond/struct.ElfHeaderBase.html" title="struct elrond::ElfHeaderBase">ElfHeaderBase</a>&lt;'a&gt;</code></span></h3><h3 id='tymethod.e_version' class='method'><span id='e_version.v' class='invisible'><code>fn <a href='#tymethod.e_version' class='fnname'>e_version</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3><h3 id='tymethod.e_entry' class='method'><span id='e_entry.v' class='invisible'><code>fn <a href='#tymethod.e_entry' class='fnname'>e_entry</a>(&amp;self) -&gt; <a class="enum" href="../elrond/enum.VarSize.html" title="enum elrond::VarSize">VarSize</a></code></span></h3><h3 id='tymethod.e_phoff' class='method'><span id='e_phoff.v' class='invisible'><code>fn <a href='#tymethod.e_phoff' class='fnname'>e_phoff</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3><h3 id='tymethod.e_shoff' class='method'><span id='e_shoff.v' class='invisible'><code>fn <a href='#tymethod.e_shoff' class='fnname'>e_shoff</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3><h3 id='tymethod.e_flags' class='method'><span id='e_flags.v' class='invisible'><code>fn <a href='#tymethod.e_flags' class='fnname'>e_flags</a>(&amp;self) -&gt; <a class="enum" href="../elrond/enum.VarSize.html" title="enum elrond::VarSize">VarSize</a></code></span></h3><h3 id='tymethod.e_ehsize' class='method'><span id='e_ehsize.v' class='invisible'><code>fn <a href='#tymethod.e_ehsize' class='fnname'>e_ehsize</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3><h3 id='tymethod.e_phentsize' class='method'><span id='e_phentsize.v' class='invisible'><code>fn <a href='#tymethod.e_phentsize' class='fnname'>e_phentsize</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3><h3 id='tymethod.e_phnum' class='method'><span id='e_phnum.v' class='invisible'><code>fn <a href='#tymethod.e_phnum' class='fnname'>e_phnum</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3><h3 id='tymethod.e_shentsize' class='method'><span id='e_shentsize.v' class='invisible'><code>fn <a href='#tymethod.e_shentsize' class='fnname'>e_shentsize</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3><h3 id='tymethod.e_shnum' class='method'><span id='e_shnum.v' class='invisible'><code>fn <a href='#tymethod.e_shnum' class='fnname'>e_shnum</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3><h3 id='tymethod.e_shstrndx' class='method'><span id='e_shstrndx.v' class='invisible'><code>fn <a href='#tymethod.e_shstrndx' class='fnname'>e_shstrndx</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a></code></span></h3></div>
+            <h2 id='provided-methods' class='small-section-header'>
+              Provided Methods<a href='#provided-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='method.has_program_headers' class='method'><span id='has_program_headers.v' class='invisible'><code>fn <a href='#method.has_program_headers' class='fnname'>has_program_headers</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.has_section_headers' class='method'><span id='has_section_headers.v' class='invisible'><code>fn <a href='#method.has_section_headers' class='fnname'>has_section_headers</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.get_phdr' class='method'><span id='get_phdr.v' class='invisible'><code>fn <a href='#method.get_phdr' class='fnname'>get_phdr</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">[</a><a class="struct" href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;<a class="trait" href="../elrond/trait.PHDR.html" title="trait elrond::PHDR">PHDR</a>&lt;'a&gt; + 'a&gt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>&gt;, <a class="enum" href="../elrond/enum.Fault.html" title="enum elrond::Fault">Fault</a>&gt;</code></span></h3><h3 id='method.get_sections' class='method'><span id='get_sections.v' class='invisible'><code>fn <a href='#method.get_sections' class='fnname'>get_sections</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../elrond/struct.Sections.html" title="struct elrond::Sections">Sections</a>&lt;'a&gt;, <a class="enum" href="../elrond/enum.Fault.html" title="enum elrond::Fault">Fault</a>&gt;</code></span></h3></div>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><div class='out-of-band'><a class='srclink' href='../src/elrond/header/header.rs.html#78-137' title='goto source code'>[src]</a></div><code>impl&lt;'a&gt; ElfHeader&lt;'a&gt; for <a class="struct" href="../elrond/struct.ElfHeaderBase.html" title="struct elrond::ElfHeaderBase">ElfHeaderBase</a>&lt;'a&gt;</code></li>
+</ul><script type="text/javascript" async
+                         src="../implementors/elrond/trait.ElfHeader.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "elrond";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

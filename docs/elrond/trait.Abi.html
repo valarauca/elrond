@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Abi` trait in crate `elrond`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Abi">
+
+    <title>elrond::Abi - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc trait">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        <div class="sidebar-menu">&#9776;</div>
+        
+        <p class='location'>Trait Abi</p><div class="sidebar-elems"><div class="block items"><a class="sidebar-title" href="#required-methods">Required Methods</a><div class="sidebar-links"><a href="#tymethod.get_abi">get_abi</a></div><a class="sidebar-title" href="#provided-methods">Provided Methods</a><div class="sidebar-links"><a href="#method.is_systemv">is_systemv</a><a href="#method.is_hpux">is_hpux</a><a href="#method.is_netbsd">is_netbsd</a><a href="#method.is_linux">is_linux</a><a href="#method.is_solaris">is_solaris</a><a href="#method.is_aix">is_aix</a><a href="#method.is_irix">is_irix</a><a href="#method.is_freebsd">is_freebsd</a><a href="#method.is_openbsd">is_openbsd</a><a href="#method.is_openvms">is_openvms</a><a href="#method.is_unknown">is_unknown</a><a href="#method.get_unknown">get_unknown</a></div><a class="sidebar-title" href="#implementors">Implementors</a></div><p class='location'><a href='index.html'>elrond</a></p><script>window.sidebarCurrent = {name: 'Abi', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>elrond</a>::<wbr><a class="trait" href=''>Abi</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/elrond/macros.rs.html#111-133' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Abi {
+    fn <a href='#tymethod.get_abi' class='fnname'>get_abi</a>(&amp;self) -&gt; <a class="enum" href="../elrond/enum.ElfAbi.html" title="enum elrond::ElfAbi">ElfAbi</a>;
+
+    fn <a href='#method.is_systemv' class='fnname'>is_systemv</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_hpux' class='fnname'>is_hpux</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_netbsd' class='fnname'>is_netbsd</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_linux' class='fnname'>is_linux</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_solaris' class='fnname'>is_solaris</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_aix' class='fnname'>is_aix</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_irix' class='fnname'>is_irix</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_freebsd' class='fnname'>is_freebsd</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_openbsd' class='fnname'>is_openbsd</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_openvms' class='fnname'>is_openvms</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.is_unknown' class='fnname'>is_unknown</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> { ... }
+<div class='item-spacer'></div>    fn <a href='#method.get_unknown' class='fnname'>get_unknown</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt; { ... }
+}</pre>
+            <h2 id='required-methods' class='small-section-header'>
+              Required Methods<a href='#required-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='tymethod.get_abi' class='method'><span id='get_abi.v' class='invisible'><code>fn <a href='#tymethod.get_abi' class='fnname'>get_abi</a>(&amp;self) -&gt; <a class="enum" href="../elrond/enum.ElfAbi.html" title="enum elrond::ElfAbi">ElfAbi</a></code></span></h3></div>
+            <h2 id='provided-methods' class='small-section-header'>
+              Provided Methods<a href='#provided-methods' class='anchor'></a>
+            </h2>
+            <div class='methods'>
+        <h3 id='method.is_systemv' class='method'><span id='is_systemv.v' class='invisible'><code>fn <a href='#method.is_systemv' class='fnname'>is_systemv</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_hpux' class='method'><span id='is_hpux.v' class='invisible'><code>fn <a href='#method.is_hpux' class='fnname'>is_hpux</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_netbsd' class='method'><span id='is_netbsd.v' class='invisible'><code>fn <a href='#method.is_netbsd' class='fnname'>is_netbsd</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_linux' class='method'><span id='is_linux.v' class='invisible'><code>fn <a href='#method.is_linux' class='fnname'>is_linux</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_solaris' class='method'><span id='is_solaris.v' class='invisible'><code>fn <a href='#method.is_solaris' class='fnname'>is_solaris</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_aix' class='method'><span id='is_aix.v' class='invisible'><code>fn <a href='#method.is_aix' class='fnname'>is_aix</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_irix' class='method'><span id='is_irix.v' class='invisible'><code>fn <a href='#method.is_irix' class='fnname'>is_irix</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_freebsd' class='method'><span id='is_freebsd.v' class='invisible'><code>fn <a href='#method.is_freebsd' class='fnname'>is_freebsd</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_openbsd' class='method'><span id='is_openbsd.v' class='invisible'><code>fn <a href='#method.is_openbsd' class='fnname'>is_openbsd</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_openvms' class='method'><span id='is_openvms.v' class='invisible'><code>fn <a href='#method.is_openvms' class='fnname'>is_openvms</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.is_unknown' class='method'><span id='is_unknown.v' class='invisible'><code>fn <a href='#method.is_unknown' class='fnname'>is_unknown</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a></code></span></h3><h3 id='method.get_unknown' class='method'><span id='get_unknown.v' class='invisible'><code>fn <a href='#method.get_unknown' class='fnname'>get_unknown</a>(&amp;self) -&gt; <a class="enum" href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>&gt;</code></span></h3></div>
+        <h2 id='implementors' class='small-section-header'>
+          Implementors<a href='#implementors' class='anchor'></a>
+        </h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><div class='out-of-band'><a class='srclink' href='../src/elrond/macros.rs.html#145-150' title='goto source code'>[src]</a></div><code>impl Abi for <a class="enum" href="../elrond/enum.ElfAbi.html" title="enum elrond::ElfAbi">ElfAbi</a></code></li>
+<li><div class='out-of-band'><a class='srclink' href='../src/elrond/header/header.rs.html#36-41' title='goto source code'>[src]</a></div><code>impl&lt;'a&gt; Abi for <a class="struct" href="../elrond/struct.ElfHeaderBase.html" title="struct elrond::ElfHeaderBase">ElfHeaderBase</a>&lt;'a&gt;</code></li>
+</ul><script type="text/javascript" async
+                         src="../implementors/elrond/trait.Abi.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>↑</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>↓</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>↹</dt>
+                    <dd>Switch tab</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "elrond";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

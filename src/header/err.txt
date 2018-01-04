@@ -1,0 +1,62 @@
+   Compiling elrond v0.1.0 (file:///home/cody/Documents/elrond/elrond)
+error[E0053]: method `duplicate` has an incompatible type for trait
+   --> /home/cody/Documents/elrond/elrond/src/header/header32.rs:199:28
+    |
+199 |     fn duplicate(&self) -> Box<ElfHeader<'a>+'a> {
+    |                            ^^^^^^^^^^^^^^^^^^^^^ expected struct `std::sync::Arc`, found struct `std::boxed::Box`
+    | 
+   ::: /home/cody/Documents/elrond/elrond/src/header/traits.rs
+    |
+13  |     fn duplicate(&self) -> Arc<ElfHeader<'a>+'a>;
+    |                            --------------------- type in trait
+    |
+    = note: expected type `fn(&header::header32::Elf32Header<'a>) -> std::sync::Arc<header::traits::ElfHeader<'a> + 'a>`
+               found type `fn(&header::header32::Elf32Header<'a>) -> std::boxed::Box<header::traits::ElfHeader<'a> + 'a>`
+
+error[E0053]: method `duplicate` has an incompatible type for trait
+   --> /home/cody/Documents/elrond/elrond/src/header/header64.rs:198:28
+    |
+198 |     fn duplicate(&self) -> Box<ElfHeader<'a>+'a> {
+    |                            ^^^^^^^^^^^^^^^^^^^^^ expected struct `std::sync::Arc`, found struct `std::boxed::Box`
+    | 
+   ::: /home/cody/Documents/elrond/elrond/src/header/traits.rs
+    |
+13  |     fn duplicate(&self) -> Arc<ElfHeader<'a>+'a>;
+    |                            --------------------- type in trait
+    |
+    = note: expected type `fn(&header::header64::Elf64Header<'a>) -> std::sync::Arc<header::traits::ElfHeader<'a> + 'a>`
+               found type `fn(&header::header64::Elf64Header<'a>) -> std::boxed::Box<header::traits::ElfHeader<'a> + 'a>`
+
+error[E0053]: method `duplicate` has an incompatible type for trait
+   --> /home/cody/Documents/elrond/elrond/src/phdr/phdr32.rs:180:28
+    |
+180 |     fn duplicate(&self) -> Box<ElfHeader<'a>+'a> {
+    |                            ^^^^^^^^^^^^^^^^^^^^^ expected struct `std::sync::Arc`, found struct `std::boxed::Box`
+    | 
+   ::: /home/cody/Documents/elrond/elrond/src/header/traits.rs
+    |
+13  |     fn duplicate(&self) -> Arc<ElfHeader<'a>+'a>;
+    |                            --------------------- type in trait
+    |
+    = note: expected type `fn(&phdr::phdr32::Phdr32<'a>) -> std::sync::Arc<header::traits::ElfHeader<'a> + 'a>`
+               found type `fn(&phdr::phdr32::Phdr32<'a>) -> std::boxed::Box<header::traits::ElfHeader<'a> + 'a>`
+
+error[E0053]: method `duplicate` has an incompatible type for trait
+   --> /home/cody/Documents/elrond/elrond/src/phdr/phdr64.rs:181:28
+    |
+181 |     fn duplicate(&self) -> Box<ElfHeader<'a>+'a> {
+    |                            ^^^^^^^^^^^^^^^^^^^^^ expected struct `std::sync::Arc`, found struct `std::boxed::Box`
+    | 
+   ::: /home/cody/Documents/elrond/elrond/src/header/traits.rs
+    |
+13  |     fn duplicate(&self) -> Arc<ElfHeader<'a>+'a>;
+    |                            --------------------- type in trait
+    |
+    = note: expected type `fn(&phdr::phdr64::Phdr64<'a>) -> std::sync::Arc<header::traits::ElfHeader<'a> + 'a>`
+               found type `fn(&phdr::phdr64::Phdr64<'a>) -> std::boxed::Box<header::traits::ElfHeader<'a> + 'a>`
+
+error: aborting due to 4 previous errors
+
+error: Could not compile `elrond`.
+
+To learn more, run the command again with --verbose.
