@@ -10,7 +10,7 @@ Add this to your `Cargo.toml`
 
 ```
 [dependencies]
-elrond = "0.1.0"
+elrond = "1.0.0"
 ```
 
 ---
@@ -19,11 +19,11 @@ elrond = "0.1.0"
 
 ```rust
 extern crate elrond;
-use elrond::Elf;
+use elrond::prelude::*;
 
 let mut v = Vec::with_capacity(4096);
 let _ = my_file.read_to_end(v.as_mut_slice())?;
-let elf = match Elf::parse(v.as_slice()) {
+let elf = match elrond::parse_elf(v.as_slice()) {
 	Ok(x) => x,
 	Err(e) => panic!("Could not read elf file {:?}", e)
 };
